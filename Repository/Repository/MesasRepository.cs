@@ -39,6 +39,43 @@ namespace Repository.Repository
             }
         }
 
+        public async Task<bool> ChangeStatus(int id, string estado)
+        {
+            try
+            {
+                var mesa = await GetById(id);
+
+                mesa.Estado = estado;
+
+                await Update(mesa);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> CompleteTable(int id)
+        {
+            try
+            {
+                var mesa = await _ordenesRepository.GetOrdenesInProccess(id);
+
+                if (mesa == false)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public async Task<List<MesasDTO>> GetAllDto()
         {
             var list = await GetAll();

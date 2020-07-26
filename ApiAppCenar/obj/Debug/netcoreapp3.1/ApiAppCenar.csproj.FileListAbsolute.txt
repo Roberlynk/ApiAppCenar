@@ -133,10 +133,15 @@ C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\tr\Mi
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\Repository.pdb
-C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.dll
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.pdb
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.genruntimeconfig.cache
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\DTO.dll
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\DTO.pdb
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.MvcApplicationPartsAssemblyInfo.cache

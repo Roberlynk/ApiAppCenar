@@ -73,6 +73,34 @@ namespace ApiAppCenar.Controllers
             return BadRequest();
         }
 
+        [HttpPost]
+        [Route("CompleteTable")]
+        public async Task<ActionResult> PostCompleteTable(int id)
+        {
+            var mesas = await _repository.GetById(id);
+
+            if (mesas == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var response = await _repository.CompleteTable(id);
+
+                if (response)
+                {
+                    return NoContent();
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+            }
+
+            return BadRequest();
+        }
+
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, MesasDTO mesa)
         {
@@ -86,6 +114,32 @@ namespace ApiAppCenar.Controllers
             if (ModelState.IsValid)
             {
                 var response = await _repository.UpdateMesaDto(id, mesa);
+
+                if (response)
+                {
+                    return NoContent();
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+            }
+
+            return BadRequest();
+        }
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Patch(int id, string estado)
+        {
+            var mesas = await _repository.GetById(id);
+
+            if (mesas == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var response = await _repository.ChangeStatus(id, estado);
 
                 if (response)
                 {

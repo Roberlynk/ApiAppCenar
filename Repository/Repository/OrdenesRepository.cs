@@ -71,6 +71,28 @@ namespace Repository.Repository
             return listDto;
         }
 
+        public async Task<bool> GetOrdenesInProccess(int id)
+        {
+            var todos = await base._context.Ordenes.Where(x => x.IdMesas == id).ToListAsync();
+
+            if (todos.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (var item in todos)
+            {
+                if (item.Estado == true)
+                {
+                    item.Estado = false;
+
+                    await Update(item);
+                }
+            }
+
+            return true;
+        }
+
         public async Task<bool> DeleteOrdenes(int id)
         {
             try

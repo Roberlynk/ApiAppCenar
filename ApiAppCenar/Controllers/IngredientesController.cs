@@ -85,32 +85,5 @@ namespace ApiAppCenar.Controllers
 
             return BadRequest();
         }
-
-        [HttpPatch]
-        public async Task<ActionResult> Patch(int id, IngredientesDTO ingrediente)
-        {
-            var ingredientes = await _repository.GetById(id);
-
-            if (ingredientes == null)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                var response = await _repository.UpdateIngredienteDto(id, ingrediente);
-
-                if (response)
-                {
-                    return NoContent();
-                }
-                else
-                {
-                    return StatusCode(500);
-                }
-            }
-
-            return BadRequest();
-        }
     }
 }
