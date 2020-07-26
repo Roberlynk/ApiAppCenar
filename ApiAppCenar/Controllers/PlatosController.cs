@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataBase.Model;
+using DTO;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Repository;
 
@@ -20,9 +21,14 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Platos>>> Get()
+        public async Task<ActionResult<List<PlatosDTO>>> Get()
         {
-            var list = await _repository.GetAll();
+            var list = await _repository.GetAllDto();
+
+            if (list.Count == 0)
+            {
+                return NotFound();
+            }
 
             return list;
         }
@@ -31,6 +37,11 @@ namespace ApiAppCenar.Controllers
         public async Task<ActionResult<Platos>> Get(int id)
         {
             var plato = await _repository.GetById(id);
+
+            if (plato == null)
+            {
+                return NotFound();
+            }
 
             return plato;
         }
@@ -49,11 +60,19 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Platos plato)
+        public async Task<ActionResult> Put(int id, PlatosDTO plato)
         {
+            var platos = await _repository.GetById(id);
+
+            if (platos == null)
+            {
+                return NotFound();
+            }
+
+
             if (ModelState.IsValid)
             {
-                var response = await _repository.UpdatePlato(id, plato);
+                var response = await _repository.UpdatePlatoDto(id, plato);
 
                 if (response)
                 {

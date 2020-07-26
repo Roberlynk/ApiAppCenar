@@ -1,0 +1,11 @@
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\bin\Debug\netcoreapp3.1\DataBase.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\bin\Debug\netcoreapp3.1\DataBase.pdb
+C:\Users\Roberlynk\Desktop\ApiAppCenar\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete

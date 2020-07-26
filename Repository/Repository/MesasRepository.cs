@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using DataBase.Model;
+using DTO;
+using Microsoft.EntityFrameworkCore;
 using Repository.RepositoryBase;
 
 namespace Repository.Repository
 {
     public class MesasRepository : RepositoryBase<Mesas, ApiAppCenarContext>
     {
-
+        private readonly OrdenesRepository _ordenesRepository;
         public MesasRepository(ApiAppCenarContext context) : base(context)
         {
-
+            _ordenesRepository = new OrdenesRepository(context);
         }
 
-        public async Task<bool> UpdateMesa(int id, Mesas entity)
+        public async Task<bool> UpdateMesaDto(int id, MesasDTO entity)
         {
             try
             {
@@ -33,6 +37,28 @@ namespace Repository.Repository
             {
                 return false;
             }
+        }
+
+        public async Task<List<MesasDTO>> GetAllDto()
+        {
+            var list = await GetAll();
+
+            var listDto = new List<MesasDTO>();
+
+            foreach (var item in list)
+            {
+                var dto = Mapper.Map<MesasDTO>(item);
+
+                listDto.Add(dto);
+            }
+
+            return listDto;
+        }
+        
+        public async Task<List<OrdenesDTO>> GetAllDtoByStatus(int id)
+        {
+            var list = await _ordenesRepository.GetAllOrdenesByStatus(id);
+            return list;
         }
 
     }

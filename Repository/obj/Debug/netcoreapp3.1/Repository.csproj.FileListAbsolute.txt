@@ -12,3 +12,5 @@ C:\Users\Roberlynk\Desktop\ApiAppCenar\Repository\obj\Debug\netcoreapp3.1\Reposi
 C:\Users\Roberlynk\Desktop\ApiAppCenar\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.json
 C:\Users\Roberlynk\Desktop\ApiAppCenar\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.dev.json
 C:\Users\Roberlynk\Desktop\ApiAppCenar\Repository\obj\Debug\netcoreapp3.1\Repository.genruntimeconfig.cache
+C:\Users\Roberlynk\Desktop\ApiAppCenar\Repository\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\Repository\bin\Debug\netcoreapp3.1\DTO.pdb

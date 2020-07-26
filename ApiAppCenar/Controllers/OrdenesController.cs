@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataBase.Model;
 using Repository.Repository;
+using DTO;
 
 namespace ApiAppCenar.Controllers
 {
@@ -20,9 +21,14 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Ordenes>>> Get()
+        public async Task<ActionResult<List<OrdenesDTO>>> Get()
         {
-            var list = await _repository.GetAll();
+            var list = await _repository.GetAllDto();
+
+            if (list.Count == 0)
+            {
+                return NotFound();
+            }
 
             return list;
         }
@@ -31,6 +37,11 @@ namespace ApiAppCenar.Controllers
         public async Task<ActionResult<Ordenes>> Get(int id)
         {
             var orden = await _repository.GetById(id);
+
+            if (orden == null)
+            {
+                return NotFound();
+            }
 
             return orden;
         }
@@ -49,11 +60,18 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Ordenes orden)
+        public async Task<ActionResult> Put(int id, OrdenesDTO orden)
         {
+            var ordenes = await _repository.GetById(id);
+
+            if (ordenes == null)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                var response = await _repository.UpdateOrden(id, orden);
+                var response = await _repository.UpdateOrdenDto(id, orden);
 
                 if (response)
                 {

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataBase.Model;
 using Repository.Repository;
+using DTO;
 
 namespace ApiAppCenar.Controllers
 {
@@ -20,17 +21,41 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Mesas>>> Get()
+        public async Task<ActionResult<List<MesasDTO>>> Get()
         {
-            var list = await _repository.GetAll();
+            var list = await _repository.GetAllDto();
+
+            if (list.Count == 0)
+            {
+                return NotFound();
+            }
 
             return list;
+        }
+
+        [HttpGet]
+        [Route("GetTableOrden")]
+        public async Task<ActionResult<List<OrdenesDTO>>> GetTableByStatus(int id)
+        {
+            var ordenesByMesa = await _repository.GetAllDtoByStatus(id);
+
+            if (ordenesByMesa.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return ordenesByMesa;
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Mesas>> Get(int id)
         {
             var mesa = await _repository.GetById(id);
+
+            if (mesa == null)
+            {
+                return NotFound();
+            }
 
             return mesa;
         }
@@ -49,11 +74,18 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Mesas mesa)
+        public async Task<ActionResult> Put(int id, MesasDTO mesa)
         {
+            var mesas = await _repository.GetById(id);
+
+            if (mesas == null)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                var response = await _repository.UpdateMesa(id, mesa);
+                var response = await _repository.UpdateMesaDto(id, mesa);
 
                 if (response)
                 {

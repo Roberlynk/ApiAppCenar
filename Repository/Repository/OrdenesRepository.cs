@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using DataBase.Model;
+using DTO;
+using Microsoft.EntityFrameworkCore;
 using Repository.RepositoryBase;
 
 namespace Repository.Repository
 {
     public class OrdenesRepository : RepositoryBase<Ordenes, ApiAppCenarContext>
     {
-        private OrdenesPlatosRepository ordenesPlatosRepository;
+        private readonly OrdenesPlatosRepository _ordenesPlatosRepository;
         public OrdenesRepository(ApiAppCenarContext context) : base(context)
         {
-            ordenesPlatosRepository = new OrdenesPlatosRepository(context);
+            _ordenesPlatosRepository = new OrdenesPlatosRepository(context);
         }
 
-        public async Task<bool> UpdateOrden(int id, Ordenes entity)
+        public async Task<bool> UpdateOrdenDto(int id, OrdenesDTO entity)
         {
             try
             {
@@ -35,11 +39,43 @@ namespace Repository.Repository
             }
         }
 
+        public async Task<List<OrdenesDTO>> GetAllDto()
+        {
+            var list = await GetAll();
+
+            var listDto = new List<OrdenesDTO>();
+
+            foreach (var item in list)
+            {
+                var dto = Mapper.Map<OrdenesDTO>(item);
+
+                listDto.Add(dto);
+            }
+
+            return listDto;
+        }
+
+        public async Task<List<OrdenesDTO>> GetAllOrdenesByStatus(int id)
+        {
+            var todos = await base._context.Ordenes.Where( x => x.IdMesas == id).ToListAsync();
+
+            var listDto = new List<OrdenesDTO>();
+
+            foreach (var item in todos)
+            {
+                var dto = Mapper.Map<OrdenesDTO>(item);
+
+                listDto.Add(dto);
+            }
+
+            return listDto;
+        }
+
         public async Task<bool> DeleteOrdenes(int id)
         {
             try
             {
-                await ordenesPlatosRepository.DeleteOrdenesPlatosId(id);
+                await _ordenesPlatosRepository.DeleteOrdenesPlatosId(id);
 
                 await base.Delete(id);
 
@@ -54,4 +90,5 @@ namespace Repository.Repository
         }
 
     }
+
 }

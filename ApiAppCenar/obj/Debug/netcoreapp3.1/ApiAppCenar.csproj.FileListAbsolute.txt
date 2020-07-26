@@ -137,3 +137,6 @@ C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAp
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.dll
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.pdb
 C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\obj\Debug\netcoreapp3.1\ApiAppCenar.genruntimeconfig.cache
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\Roberlynk\Desktop\ApiAppCenar\ApiAppCenar\bin\Debug\netcoreapp3.1\libman.json

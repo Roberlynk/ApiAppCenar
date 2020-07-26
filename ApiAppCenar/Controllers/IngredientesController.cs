@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataBase.Model;
 using Repository.Repository;
+using DTO;
 
 namespace ApiAppCenar.Controllers
 {
@@ -20,9 +21,9 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Ingredientes>>> Get()
+        public async Task<ActionResult<List<IngredientesDTO>>> Get()
         {
-            var list = await _repository.GetAll();
+            var list = await _repository.GetAllDto();
 
             if (list.Count == 0)
             {
@@ -59,11 +60,45 @@ namespace ApiAppCenar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Ingredientes ingrediente)
+        public async Task<ActionResult> Put(int id, IngredientesDTO ingrediente)
         {
+            var ingredientes = await _repository.GetById(id);
+
+            if (ingredientes == null)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                var response = await _repository.UpdateIngrediente(id, ingrediente);
+                var response = await _repository.UpdateIngredienteDto(id, ingrediente);
+
+                if (response)
+                {
+                    return NoContent();
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPatch]
+        public async Task<ActionResult> Patch(int id, IngredientesDTO ingrediente)
+        {
+            var ingredientes = await _repository.GetById(id);
+
+            if (ingredientes == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var response = await _repository.UpdateIngredienteDto(id, ingrediente);
 
                 if (response)
                 {

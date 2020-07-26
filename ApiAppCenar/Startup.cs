@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using AutoMapper;
+using BankingT.Infraestructure.AutoMapper;
 using DataBase.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +38,8 @@ namespace ApiAppCenar
             services.AddScoped<MesasRepository>();
             services.AddScoped<OrdenesRepository>();
             services.AddScoped<PlatosRepository>();
+
+            services.AddAutoMapper(typeof(AutoMapperProfile).GetTypeInfo().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

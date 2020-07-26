@@ -1,6 +1,5 @@
 C:\Users\Roberlynk\Desktop\ApiAppCenar\DataBase\bin\Debug\netcoreapp3.1\DataBase.deps.json
 C:\Users\Roberlynk\Desktop\ApiAppCenar\DataBase\bin\Debug\netcoreapp3.1\DataBase.dll
-C:\Users\Roberlynk\Desktop\ApiAppCenar\DataBase\obj\Debug\netcoreapp3.1\DataBase.csprojAssemblyReference.cache
 C:\Users\Roberlynk\Desktop\ApiAppCenar\DataBase\obj\Debug\netcoreapp3.1\DataBase.AssemblyInfoInputs.cache
 C:\Users\Roberlynk\Desktop\ApiAppCenar\DataBase\obj\Debug\netcoreapp3.1\DataBase.AssemblyInfo.cs
 C:\Users\Roberlynk\Desktop\ApiAppCenar\DataBase\bin\Debug\netcoreapp3.1\DataBase.runtimeconfig.json
